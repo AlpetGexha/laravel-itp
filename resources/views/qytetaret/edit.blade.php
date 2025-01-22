@@ -8,7 +8,7 @@
             Kthehu tek tabela
         </a>
 
-        <form action="{{ route('qytetaret.edit', $qytetar)  }}" method="POST"
+        <form action="{{ route('qytetaret.edit', $qytetar) }}" method="POST"
               id="updateForm" class="bg-white shadow-w rounded-lg p-6">
             @csrf
             @method('PUT')

@@ -3,32 +3,29 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Qytetaret;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-
 
 class Qytetet extends Model
 {
+    public $timestamps = false;
     protected $fillable = [
-        'name'
+        'name',
     ];
 
-    protected $table='qytetet';
+    protected $table = 'qytetet';
 
-    public $timestamps = false;
-
- public function qytetaret(): HasMany
+    public function qytetaret(): HasMany
     {
-        return $this->hasMany(Qytetaret::class,'qyteti_id');
+        return $this->hasMany(Qytetaret::class, 'qyteti_id');
     }
 
     public function qytetaretMale()
     {
-        return $this->hasMany(Qytetaret::class,'qyteti_id')->where('gjinia', 'M');
+        return $this->hasMany(Qytetaret::class, 'qyteti_id')->where('gjinia', 'M');
     }
 
     public function qytetaretFemale()
     {
-        return $this->hasMany(Qytetaret::class,'qyteti_id')->where('gjinia', 'F');
+        return $this->hasMany(Qytetaret::class, 'qyteti_id')->where('gjinia', 'F');
     }
 }

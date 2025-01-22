@@ -32,7 +32,7 @@
                             <a href="{{ route('qytetaret.edit', $city) }}"
                                class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600">Edit</a>
 
-                            <form action="{{route('qytetet.destroy', $city)}}" method="post">
+                            <form action="{{ route('qytetet.destroy', $city) }}" method="post">
                                 @csrf
                                 @method('POST')
                                 <button class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600">

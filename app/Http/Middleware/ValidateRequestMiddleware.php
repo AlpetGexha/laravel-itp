@@ -1,12 +1,15 @@
 <?php
+
 namespace App\Http\Middleware;
+
 use Closure;
 use Illuminate\Http\Request;
+
 class ValidateRequestMiddleware
 {
     public function handle(Request $request, Closure $next)
     {
-        if (!$request->hasHeader('X-Secret-Key')) {
+        if (! $request->hasHeader('X-Secret-Key')) {
             return response()->json([
                 'success' => false,
                 'message' => 'Missing X-Secret-Key header',
@@ -28,6 +31,7 @@ class ValidateRequestMiddleware
                 ], 422);
             }
         }
+
         return $next($request);
     }
 }

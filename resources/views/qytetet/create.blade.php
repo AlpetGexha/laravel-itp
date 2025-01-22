@@ -3,6 +3,8 @@
         <div class="big-white shadow-md rounded-lg p-6">
             <h1 class="text-2xl font-bold text-gray-800 mb-4">Shto Qytete</h1>
 
+            <x-errors />
+
             <form action="{{ route('qytetet.store') }}" method="POST" class="mt-6">
                 @csrf
                 <div class="mb-4">

@@ -11,30 +11,13 @@ class QytetetController extends Controller
     public function index()
     {
         $qytetet = Qytetet::all();
+
         return view('qytetet.qytetet', ['qytetet' => $qytetet]);
     }
 
-    public function show($id)
+    public function create()
     {
-        $qytetet = Qytetet::findOrFail($id);
-        return view('qytetet.detaje', ['qytetet' => $qytetet]);
-    }
-
-
-    public function edit($id)
-    {
-        $qytet = Qytetet::findOrFail($id);
-        return view('qytetet.edit', ['qytet' => $qytet]);
-    }
-
-    public function update(Request $request, $id)
-    {
-        $qytet = Qytetet::findOrFail($id);
-        $qytet->name = $request->input('name');
-        $qytet->save();
-
-        return redirect()->route('qytetet.index')
-            ->with('success', 'Qyteti u përditësua me sukses.');
+        return view('qytetet.create');
     }
 
     public function store(Request $request)
@@ -51,9 +34,28 @@ class QytetetController extends Controller
             ->with('success', 'Qyteti u shtua me sukses.');
     }
 
-    public function create()
+    public function show($id)
     {
-        return view('qytetet.create');
+        $qytetet = Qytetet::findOrFail($id);
+
+        return view('qytetet.detaje', ['qytetet' => $qytetet]);
+    }
+
+    public function edit($id)
+    {
+        $qytet = Qytetet::findOrFail($id);
+
+        return view('qytetet.edit', ['qytet' => $qytet]);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $qytet = Qytetet::findOrFail($id);
+        $qytet->name = $request->input('name');
+        $qytet->save();
+
+        return redirect()->route('qytetet.index')
+            ->with('success', 'Qyteti u përditësua me sukses.');
     }
 
     public function destroy($id)
@@ -70,6 +72,7 @@ class QytetetController extends Controller
     {
         $qytetet = Qytetet::findOrfail($id);
         $qytetet->delete();
+
         return $qytetet;
     }
 }

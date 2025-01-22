@@ -4,7 +4,7 @@
             <a href="{{ url('/') }}"
                class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 focus:outline-none focus-ring focus:ring-green-500">&larr;
                 Kthehu tek tabela</a>
-            <a href="{{ url('/qytetaret/' . $qytetar->id . '/edit')}}"
+            <a href="{{ url('/qytetaret/' . $qytetar->id . '/edit') }}"
                class="bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600">Edit</a>
         </div>
 

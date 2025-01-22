@@ -14,23 +14,6 @@ class QytetaretController extends Controller
         return view('qytetaret.qytetaret', ['qytetaret' => $qytetaret]);
     }
 
-    public function show($id)
-    {
-        $qytetar = Qytetaret::findOrFail($id);
-
-        return view('qytetaret.detaje', ['qytetar' => $qytetar]);
-    }
-
-
-    // Show the form to edit an existing qytetar
-    public function edit($id)
-    {
-        $qytetar = Qytetaret::findOrFail($id);
-
-        return view('qytetaret.edit', ['qytetar' => $qytetar]);
-    }
-
-
     public function create()
     {
         return view('qytetaret.create');
@@ -50,6 +33,20 @@ class QytetaretController extends Controller
         return redirect()->route('qytetaret.index')->with('success', 'Qytetari u krijua me sukses!');
     }
 
+    public function show($id)
+    {
+        $qytetar = Qytetaret::findOrFail($id);
+
+        return view('qytetaret.detaje', ['qytetar' => $qytetar]);
+    }
+
+    // Show the form to edit an existing qytetar
+    public function edit($id)
+    {
+        $qytetar = Qytetaret::findOrFail($id);
+
+        return view('qytetaret.edit', ['qytetar' => $qytetar]);
+    }
 
     // Update the specified qytetar
     public function update(Request $request, $id)
@@ -83,5 +80,4 @@ class QytetaretController extends Controller
 
         return redirect()->route('qytetaret.index')->with('success', 'Qytetari u fshi me sukses!');
     }
-
 }

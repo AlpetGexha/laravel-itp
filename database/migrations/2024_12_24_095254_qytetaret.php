@@ -12,18 +12,15 @@ return new class extends Migration
             $table->id();
             $table->string('emri');
             $table->string('mbiemri');
-            $table->string('gjinia',1);
+            $table->string('gjinia', 1);
             $table->integer('viti_i_lindjes');
             $table->foreignId('qyteti_id')->nullable();
-          
+
             $table->timestamps();
         });
 
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::dropIfExists('qytetaret');
