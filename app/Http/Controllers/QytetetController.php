@@ -2,11 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 use App\Models\Qytetet;
-use Illuminate\Support\Facades\Validator;
-use Illuminate\Support\Str;
+use Illuminate\Http\Request;
 
 class QytetetController extends Controller
 {
@@ -24,12 +21,12 @@ class QytetetController extends Controller
     }
 
 
-
     public function edit($id)
     {
         $qytet = Qytetet::findOrFail($id);
         return view('qytetet.edit', ['qytet' => $qytet]);
     }
+
     public function update(Request $request, $id)
     {
         $qytet = Qytetet::findOrFail($id);
@@ -37,12 +34,7 @@ class QytetetController extends Controller
         $qytet->save();
 
         return redirect()->route('qytetet.index')
-        ->with('success', 'Qyteti u përditësua me sukses.');
-    }
-
-    public function create()
-    {
-        return view('qytetet.create');
+            ->with('success', 'Qyteti u përditësua me sukses.');
     }
 
     public function store(Request $request)
@@ -56,21 +48,28 @@ class QytetetController extends Controller
         ]);
 
         return redirect()->route('qytetet.index')
-        ->with('success', 'Qyteti u shtua me sukses.');
+            ->with('success', 'Qyteti u shtua me sukses.');
     }
+
+    public function create()
+    {
+        return view('qytetet.create');
+    }
+
+    public function destroy($id)
+    {
+
+        $qytet = Qytetet::findOrFail($id);
+        $qytet->delete();
+
+        return redirect()->route('qytetet.index')
+            ->with('success', 'Qytet deleted successfully.');
+    }
+
     public function delete($id)
     {
         $qytetet = Qytetet::findOrfail($id);
         $qytetet->delete();
         return $qytetet;
-    }
-
-    public function destroy($id)
-    {
-        $qytet = Qytetet::findOrFail($id);
-        $qytet->delete();
-
-        return redirect()->route('qytetet.index')
-        ->with('success', 'Qytet deleted successfully.');
     }
 }
