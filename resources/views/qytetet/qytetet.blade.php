@@ -17,13 +17,6 @@
                 @forelse ($qytetet as $city)
                     <tr class="hover:bg-gray-100">
                         <td class="border border-gray-300 px-4 py-2 text-center">{{ $city->id }}</td>
-                        {{--                        <td class="border border-gray-300 px-4 py-2">--}}
-                        {{--                            <a href="{{ url('/qytetaret/' . $city->id) }}" class="text-blue-500 hover:underline">--}}
-                        {{--                                {{ $city->emri }}--}}
-                        {{--                            </a>--}}
-                        {{--                            {{ $city->emri }}--}}
-                        {{--                        </td>--}}
-
                         <td class="border border-gray-300 px-4 py-2 text-center">{{ $city->name }}</td>
 
                         <td class="border border-gray-300 px-4 py-2 text-center">
@@ -32,11 +25,11 @@
                             <a href="{{ route('qytetaret.edit', $city) }}"
                                class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600">Edit</a>
 
-                            <form action="{{ route('qytetet.destroy', $city) }}" method="post">
+                            <form action="{{ route('qytetet.destroy', $city) }}" method="POST">
                                 @csrf
-                                @method('POST')
+                                @method('DELETE')
                                 <button class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600">
-                                    Delete
+                                    Deleteee
                                 </button>
                             </form>
 

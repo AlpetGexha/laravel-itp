@@ -14,11 +14,6 @@ class QytetaretController extends Controller
         return view('qytetaret.qytetaret', ['qytetaret' => $qytetaret]);
     }
 
-    public function create()
-    {
-        return view('qytetaret.create');
-    }
-
     public function store(Request $request)
     {
         $validated = $request->validate([
@@ -30,7 +25,13 @@ class QytetaretController extends Controller
 
         Qytetaret::create($validated);
 
-        return redirect()->route('qytetaret.index')->with('success', 'Qytetari u krijua me sukses!');
+        return redirect()->route('qytetaret.index')
+            ->with('success', 'Qytetari u krijua me sukses!');
+    }
+
+    public function create()
+    {
+        return view('qytetaret.create');
     }
 
     public function show($id)

@@ -18,7 +18,7 @@
         </div>
         <nav>
             <ul class="flex space-x-6 text-lg">
-                <a href="{{ url('/qytetet/qytetet') }}"
+                <a href="{{ route('qytetet.index') }}"
                    class="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600">Shiko Qytetet</a>
                 <a href="{{ route('qytetaret.index') }}"
                    class="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600">Shiko Qytetart</a>

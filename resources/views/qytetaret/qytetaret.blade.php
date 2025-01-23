@@ -17,7 +17,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                @foreach ($qytetaret as $qytetar)
+                @forelse ($qytetaret as $qytetar)
                     <tr class="hover:bg-gray-100">
                         <td class="border border-gray-300 px-4 py-2 text-center">{{ $qytetar->id }}</td>
                         <td class="border border-gray-300 px-4 py-2">
@@ -35,7 +35,12 @@
                                class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600">Edit</a>
                         </td>
                     </tr>
-                @endforeach
+                @empty
+                    <td>
+                        KA JE NIS PA QYTATAR
+                    </td>
+                @endforelse
+
                 </tbody>
             </table>
         </div>

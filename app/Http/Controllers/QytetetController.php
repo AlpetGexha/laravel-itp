@@ -7,17 +7,13 @@ use Illuminate\Http\Request;
 
 class QytetetController extends Controller
 {
-    // QytetetController.php
     public function index()
     {
         $qytetet = Qytetet::all();
 
-        return view('qytetet.qytetet', ['qytetet' => $qytetet]);
-    }
-
-    public function create()
-    {
-        return view('qytetet.create');
+        return view('qytetet.qytetet', [
+            'qytetet' => $qytetet
+        ]);
     }
 
     public function store(Request $request)
@@ -34,18 +30,27 @@ class QytetetController extends Controller
             ->with('success', 'Qyteti u shtua me sukses.');
     }
 
+    public function create()
+    {
+        return view('qytetet.create');
+    }
+
     public function show($id)
     {
         $qytetet = Qytetet::findOrFail($id);
 
-        return view('qytetet.detaje', ['qytetet' => $qytetet]);
+        return view('qytetet.detaje', [
+            'qytetet' => $qytetet
+        ]);
     }
 
     public function edit($id)
     {
         $qytet = Qytetet::findOrFail($id);
 
-        return view('qytetet.edit', ['qytet' => $qytet]);
+        return view('qytetet.edit', [
+            'qytet' => $qytet
+        ]);
     }
 
     public function update(Request $request, $id)
@@ -60,19 +65,10 @@ class QytetetController extends Controller
 
     public function destroy($id)
     {
-
         $qytet = Qytetet::findOrFail($id);
         $qytet->delete();
 
         return redirect()->route('qytetet.index')
             ->with('success', 'Qytet deleted successfully.');
-    }
-
-    public function delete($id)
-    {
-        $qytetet = Qytetet::findOrfail($id);
-        $qytetet->delete();
-
-        return $qytetet;
     }
 }
