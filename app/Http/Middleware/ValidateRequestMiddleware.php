@@ -23,13 +23,11 @@ class ValidateRequestMiddleware
                 'message' => 'Invalid secret token.',
             ], 401);
         }
-        if ($request->isMethod('post')) {
-            if ($request->has('name') && preg_match('/\d/', $request->input('name'))) {
-                return response()->json([
-                    'success' => false,
-                    'message' => 'Numbers are not allowed in the name field.',
-                ], 422);
-            }
+        if ($request->isMethod('post') && ($request->has('name') && preg_match('/\d/', (string) $request->input('name')))) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Numbers are not allowed in the name field.',
+            ], 422);
         }
 
         return $next($request);
