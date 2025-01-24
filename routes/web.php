@@ -13,3 +13,8 @@ Route::get('/', [QytetaretController::class, 'index']);
 Route::resource('qytetaret', QytetaretController::class);
 Route::resource('/qytetet', QytetetController::class);
 
+Route::delete('/qytetaret/{id}', [QytetaretController::class, 'destroy'])->name('qytetaret.destroy');
+
+
+
+

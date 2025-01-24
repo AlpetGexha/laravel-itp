@@ -20,4 +20,5 @@ class Qytetaret extends Model
     {
         return $this->belongsTo(Qytetet::class, 'qyteti_id');
     }
+
 }

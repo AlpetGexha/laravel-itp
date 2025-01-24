@@ -69,6 +69,6 @@ class QytetetController extends Controller
         $qytet->delete();
 
         return redirect()->route('qytetet.index')
-            ->with('success', 'Qytet deleted successfully.');
+            ->with('success', 'City deleted successfully.');
     }
 }

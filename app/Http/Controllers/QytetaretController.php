@@ -81,4 +81,5 @@ class QytetaretController extends Controller
 
         return redirect()->route('qytetaret.index')->with('success', 'Qytetari u fshi me sukses!');
     }
+
 }
